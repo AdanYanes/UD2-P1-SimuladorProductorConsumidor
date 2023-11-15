@@ -22,7 +22,7 @@ public class Restaurant {
         }
 
         storage.add(veggie);
-        notify();
+        notifyAll();
     }
 
     public synchronized String getVeggie(){
@@ -33,6 +33,8 @@ public class Restaurant {
                 e.printStackTrace();
             }
         }
+
+        notifyAll(); 
         return storage.removeFirst();
     }
     

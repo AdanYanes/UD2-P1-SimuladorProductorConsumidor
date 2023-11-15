@@ -19,5 +19,18 @@ public class Main{
         faustino.start();
         mrGentleman.start();
         loquendo.start();
+
+
+        try {
+            paco.join();
+            ramon.join();
+
+            faustino.join();
+            mrGentleman.join();
+            loquendo.join();
+
+        } catch (InterruptedException e) {
+            e.printStackTrace();
+        }
     }
 }
