@@ -1,10 +1,6 @@
 package net.salesianos.threads;
 
-import java.util.Random;
-
 public class Farmer extends Person{
-
-    Random random = new Random();
 
     private String[] veggies = {"lettuce", "cabbage", "onion", "spinach", "potato",
                                 "celery", "asparagus", "radish", "broccoli", "artichoke",
@@ -21,8 +17,8 @@ public class Farmer extends Person{
     public void run(){
         for (int i = 0; i < plantCounter; i++) {
             try {
-                Thread.sleep((long)(Math.floor(Math.random() *(15 - 5 + 1) * 1000) + 5));
-                System.out.println("Ha plantado: " + veggies[random.nextInt(veggies.length - 0) + 0]);
+                Thread.sleep((long)(Math.floor(Math.random() *(15 - 5 + 1) + 5) * 1000));
+                System.out.println("Ha plantado: " + veggies[(int)(Math.floor(Math.random() *(veggies.length - 0 + 1)+ 0) * 1000)]);
             } catch (InterruptedException e) {
                 e.printStackTrace();
             }
