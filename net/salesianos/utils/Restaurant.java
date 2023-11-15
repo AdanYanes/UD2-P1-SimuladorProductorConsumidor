@@ -12,17 +12,28 @@ public class Restaurant {
         this.storageLimit = storageLimit;
     }
 
-    public void addVeggie(String veggie){
-        if(storage.size() < storageLimit){
-            storage.add(veggie);
+    public synchronized void addVeggie(String veggie){
+        while(storage.size() >= storageLimit){
+           try{
+                wait();
+           } catch (InterruptedException e){
+                e.printStackTrace();
+           }
         }
+
+        storage.add(veggie);
+        notify();
     }
 
-    public String removeVeggie(){
-        if(storage.size() > 0){
-            return storage.removeFirst();
+    public synchronized String getVeggie(){
+        while (storage.isEmpty()) {
+            try {
+                wait();
+            } catch (InterruptedException e) {
+                e.printStackTrace();
+            }
         }
-        return null;
+        return storage.removeFirst();
     }
     
 }
