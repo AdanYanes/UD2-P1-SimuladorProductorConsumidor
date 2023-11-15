@@ -6,28 +6,21 @@ public class Main{
     public static void main(String[] args){
         Restaurant restaurant = new Restaurant(3);
 
-        Farmer paco = new Farmer("Paco", 10, restaurant);
-        Farmer ramon = new Farmer("Ramon", 10, restaurant);
+        Farmer paco = new Farmer("Paco", 5, restaurant);
 
         Client faustino = new Client("Faustino", 5, restaurant);
-        Client mrGentleman = new Client("Mr. Gentleman", 10, restaurant);
-        Client loquendo = new Client("Loquendo", 5, restaurant);
 
         paco.start();
-        ramon.start();
+ 
 
         faustino.start();
-        mrGentleman.start();
-        loquendo.start();
+
 
 
         try {
             paco.join();
-            ramon.join();
 
             faustino.join();
-            mrGentleman.join();
-            loquendo.join();
 
         } catch (InterruptedException e) {
             e.printStackTrace();
